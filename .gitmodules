@@ -1,0 +1,4 @@
+[submodule "twofactor_webeid"]
+	path = twofactor_webeid
+	url = https://github.com/Muzosh/nextcloud_twofactor_webeid.git
+	branch = feature-post-quantum-support
