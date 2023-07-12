@@ -26,8 +26,13 @@ services:
       - db
     volumes:
       - nextcloud:/var/www/html
+      - ./scripts/nextcloud-config.sh:/docker-entrypoint-hooks.d/post-installation/nextcloud-config.sh
+      - .nextcloud_apps/twofactor_webeid:/var/www/html/custom_apps/twofactor_webeid
     environment:
       - MYSQL_PASSWORD=ncadmin
       - MYSQL_DATABASE=nextcloud
       - MYSQL_USER=nextcloud
       - MYSQL_HOST=db
+      - NEXTCLOUD_ADMIN_USER=ncadmin
+      - NEXTCLOUD_ADMIN_PASSWORD=ncadmin
+      - NEXTCLOUD_DATA_DIR=/var/www/html/data
