@@ -1,0 +1,30 @@
+{
+    "name": "muzosh/twofactor_webeid",
+    "description": "Web-eID two-factor authentication",
+    "type": "project",
+    "license": "AGPL",
+    "authors": [
+        {
+            "name": "Petr Muzikant"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/Muzosh/web-eid-authtoken-validation-php"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/Muzosh/phpseclib",
+            "canonical": false
+        }
+    ],
+    "require": {
+        "web-eid/web-eid-authtoken-validation-php": "dev-feature-post-quantum-support",
+        "phpseclib/phpseclib": "dev-feature-post-quantum-support as 3.0.14"
+    },
+    "require-dev": {
+        "nextcloud/coding-standard": "^1.0"
+    },
+    "minimum-stability": "dev"
+}

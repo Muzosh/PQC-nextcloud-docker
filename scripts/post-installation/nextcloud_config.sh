@@ -15,7 +15,9 @@ php /var/www/html/occ app:disable survey_client
 # ADD TESTUSER AND ENABLE WEBEID FOR HIM
 # add testuser
 export OC_PASS=testuser
+php /var/www/html/occ app:disable password_policy
 php /var/www/html/occ user:add --password-from-env --display-name=testuser testuser
+php /var/www/html/occ app:enable password_policy
 
 # install composer and twofactor_webeid dependecies
 curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
