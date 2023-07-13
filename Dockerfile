@@ -56,3 +56,13 @@ RUN echo "\n\
 # ANTIVIRUS
 # apt install -y clamav clamav-daemon
 # RUN freshclam
+
+# INSTALL COMPOSER
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+# PREPARE PERMISSIONS
+RUN mkdir /var/www/html/custom_apps
+RUN chown www-data:www-data /var/www/html/custom_apps
+
+# NEXTCLOUD CONFIG
+COPY --chown=www-data:www-data ./scripts/post-installation /docker-entrypoint-hooks.d/post-installation

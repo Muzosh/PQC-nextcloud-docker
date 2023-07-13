@@ -3,7 +3,7 @@
 php /var/www/html/occ config:system:set --type string --value files defaultapp
 
 # LOGGING
-php /var/www/html/occ config:system:set --type integer --value 1 log_level
+php /var/www/html/occ config:system:set --type integer --value 1 loglevel
 php /var/www/html/occ config:system:set --type string --value "d.m.Y - H:i:s" logdateformat
 
 # APPS
@@ -20,10 +20,9 @@ php /var/www/html/occ user:add --password-from-env --display-name=testuser testu
 php /var/www/html/occ app:enable password_policy
 
 # install composer and twofactor_webeid dependecies
-curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 composer install --no-dev -d /var/www/html/custom_apps/twofactor_webeid/
 
 # Enable twofactor_webeid, enable it for testuser and set his subject_cn for successfull login
 php /var/www/html/occ app:enable twofactor_webeid
 php /var/www/html/occ twofactorauth:enable testuser twofactor_webeid
-php /var/www/html/occ user:setting testuser twofactor_webeid subject_cn "testuser
+php /var/www/html/occ user:setting testuser twofactor_webeid subject_cn "testuser"

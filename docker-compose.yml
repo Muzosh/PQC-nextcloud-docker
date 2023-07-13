@@ -25,10 +25,12 @@ services:
     links:
       - db
     volumes:
-      - nextcloud:/var/www/html
-      - ./scripts/pre-installation:/docker-entrypoint-hooks.d/pre-installation
-      - ./scripts/post-installation:/docker-entrypoint-hooks.d/post-installation
-      - ./nextcloud_apps/twofactor_webeid:/var/www/html/custom_apps/twofactor_webeid
+      - type: volume
+        source: nextcloud
+        target: /var/www/html
+      - type: bind
+        source: ./nextcloud_apps/twofactor_webeid
+        target: /var/www/html/custom_apps/twofactor_webeid
     environment:
       - MYSQL_PASSWORD=ncadmin
       - MYSQL_DATABASE=nextcloud
