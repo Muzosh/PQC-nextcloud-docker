@@ -1,4 +1,4 @@
-# Nextcloud-Docker
+# PQC-Nextcloud-Docker
 
 This repository initializes development instance of PQC-ed Nextcloud server using Docker.
 
